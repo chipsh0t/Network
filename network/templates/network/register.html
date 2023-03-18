@@ -1,0 +1,48 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4 m-auto border border-info rounded p-3">
+                <h2 class="text-center"><i class="fa-brands fa-twitter"></i> Register</h2>
+                <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <input class="form-control" type="email" name="email" placeholder="Email Address">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+                    </div>
+                    {% if message %}
+                        <div class="my-3 text-center" id="error_message">{{message}}</div>
+                    {% endif %}
+                    <div class="text-center">
+                        <input class="btn btn-primary" type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="text-center my-5">
+            Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+        </div>
+    </div>
+
+{% endblock %}

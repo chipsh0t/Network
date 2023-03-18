@@ -1,0 +1,59 @@
+body{
+    background-color: #1B2936;
+    color: white;
+}
+
+
+#create_post_wrapper{
+    max-width: 800px;
+}
+
+#create_post_textarea, #edit_post_textarea{
+    resize: none;
+    background-color:#213440;
+    color:white;
+}
+
+/* creating styling for the like button */
+#like_button,#edit_button{
+    background: transparent;
+    border: none;
+    outline: none;
+    color:white;
+}
+
+#like_button:hover{
+    cursor: pointer;
+}
+
+#edit_button:hover{
+    cursor: pointer;
+    color:#4267b2;
+}
+
+#like_button:focus,#edit_button:focus{
+    outline: none;
+}
+
+.card, .page-link{
+    background-color: #213440;
+}
+
+a{
+    text-decoration: none;
+}
+
+.page-link{
+    width: 7em;
+}
+
+.page-link:hover,.page-link:focus{
+    cursor: pointer;
+    background-color: #213440;
+    color: white;
+}
+
+#error_message{
+    color: red;
+}
+

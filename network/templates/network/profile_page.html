@@ -1,0 +1,41 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="mx-5 mt-5 d-flex flex-column justify-content-center">
+        <!-- displaying following, followers and follow button -->
+        <div class="card border border-info rounded mb-5 container" id = "profile_info_wrapper">
+            <div class="card-body">
+                <h5 class="card-title mb-2">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="profile_username" class="mx-3"></span>
+                    <hr>
+                </h5>
+                <p class="card-text">
+                    <span class="following_info_wrapper">
+                        <span><span id="profile_following_count"></span> following</span>
+                        <span class="mx-5"><span id="profile_followers_count"></span> followers</span>
+                    </span>
+                    
+                    {% if user != request.user %}
+                        <div id="profile_following_button_wrapper" class="d-flex justify-content-end">
+                            
+                        </div>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <!-- displaying profile posts -->
+        <div id="profile_page_posts_wrapper" class="mt-5 container">
+           
+        </div>
+
+        <div class="w-100 d-flex justify-content-center my-4">
+            <nav aria-label="index navigation">
+                <ul class="pagination" id="pagination-wrapper">
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}

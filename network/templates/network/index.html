@@ -1,0 +1,30 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+<!-- this page dispalys post creation form and posts under it -->
+{% block body %}
+    <div class="mx-5 mt-5 d-flex flex-column justify-content-center">
+        <div id="create_post_wrapper" class=" container d-flex flex-column justify-content-center mb-5 border border-info rounded p-3">
+            <form id="create_post_form" name="create_post_form">
+                <label for="create_post_textarea" class="form-label mb-3">New Post</label>
+                <textarea class="form-control border border-info rounded" id="create_post_textarea" rows="3" placeholder="What's on your mind?"></textarea>
+                <div class="d-flex justify-content-end mt-3">
+                    <input type="submit" id="create_post_button" class = "btn btn-primary rounded-pill mw-50" value="Post"/>
+                </div>
+            </form>
+        </div>
+        
+        <div id="all_posts_wrapper" class="mt-5 container">
+            
+        </div>
+
+        <div class="w-100 d-flex justify-content-center my-4">
+            <nav aria-label="index navigation">
+                <ul class="pagination" id="pagination-wrapper">
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+
