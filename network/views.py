@@ -4,6 +4,8 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 from django.core.exceptions import ObjectDoesNotExist
 
 import datetime
@@ -76,7 +78,6 @@ def register(request):
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
-
         # Ensure password matches confirmation
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
@@ -84,7 +85,15 @@ def register(request):
             return render(request, "network/register.html", {
                 "message": "Passwords must match !"
             })
-
+        #if passwords match validate it
+        try:
+            #try validating password
+            validate_password(password,request.user)
+        except ValidationError as val_err:
+            #if validation fails Validation error is raised and messages are sent to client
+            return render(request, "network/register.html", {
+                "message": "Your password is weak !"
+            })
         # Attempt to create new user
         try:
             user = User.objects.create_user(username, email, password)
