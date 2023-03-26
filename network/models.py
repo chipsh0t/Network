@@ -6,7 +6,7 @@ class User(AbstractUser):
     def __str__(self) -> str:
         return f'{self.username}'
     
-    
+  
 class Post(models.Model):
     class Meta:
         ordering = ['-creation_date']
@@ -25,6 +25,7 @@ class Post(models.Model):
 class Liked(models.Model):
     class Meta:
         constraints = [
+            #user can only like a post for once
             models.UniqueConstraint(fields=['user','target_post'],  name="unique_liking")
         ]
     user = models.ForeignKey('User', on_delete=models.CASCADE)
@@ -34,11 +35,11 @@ class Liked(models.Model):
         return f'{self.user} likes {self.target_post}'
 
 
-
-#intermediary table for users following other users
+#through table for users following other users
 class Followed(models.Model):
     class Meta:
         constraints = [
+            #one user only follows another user for one time
             models.UniqueConstraint(fields=['following','followers'],  name="unique_following")
         ]
 

@@ -89,7 +89,7 @@ def register(request):
         try:
             #try validating password
             validate_password(password,request.user)
-        except ValidationError as val_err:
+        except ValidationError:
             #if validation fails Validation error is raised and messages are sent to client
             return render(request, "network/register.html", {
                 "message": "Your password is weak !"
