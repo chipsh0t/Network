@@ -11,31 +11,31 @@
                         <div class="input-group-text">
                             <i class="fa fa-user"></i>
                         </div>
-                        <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+                        <input id="registration-username-field" class="form-control" autofocus type="text" name="username" placeholder="Username" autocomplete="off">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
                             <i class="fa fa-envelope"></i>
                         </div>
-                        <input class="form-control" type="email" name="email" placeholder="Email Address">
+                        <input id="registration-email-field" class="form-control" type="email" name="email" placeholder="Email Address" autocomplete="off">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
                             <i class="fa fa-lock"></i>
                         </div>
-                        <input class="form-control" type="password" name="password" placeholder="Password">
+                        <input id="registration-password-field" class="form-control" type="password" name="password" placeholder="Password" autocomplete="off">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
                             <i class="fa fa-lock"></i>
                         </div>
-                        <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+                        <input id="registration-confirmpass-field" class="form-control" type="password" name="confirmation" placeholder="Confirm Password" autocomplete="off">
                     </div>
                     {% if message %}
                         <div class="my-3 text-center" id="error_message">{{message}}</div>
                     {% endif %}
                     <div class="text-center">
-                        <input class="btn btn-primary" type="submit" value="Register">
+                        <input id="registration-button" class="btn btn-primary" type="submit" value="Register">
                     </div>
                 </form>
             </div>

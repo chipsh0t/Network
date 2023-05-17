@@ -12,19 +12,19 @@
                         <div class="input-group-text">
                             <i class="fa fa-user"></i>
                         </div>
-                        <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+                        <input id="login-username-field" class="form-control" autofocus type="text" name="username" placeholder="Username" autocomplete="off">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-text">
                             <i class="fa fa-lock"></i>
                         </div>
-                        <input class="form-control" type="password" name="password" placeholder="Password">
+                        <input id="login-password-field" class="form-control" type="password" name="password" placeholder="Password" autocomplete="off">
                     </div>
                     {% if message %}
                         <div class="my-3 text-center" id="error_message">{{message}}</div>
                     {% endif %}
                     <div class="text-center">
-                        <input class="btn btn-primary" type="submit" value="Login">
+                        <input id="login-button" class="btn btn-primary" type="submit" value="Login">
                     </div>
                 </form>
             </div>
